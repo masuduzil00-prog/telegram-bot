@@ -1,6 +1,7 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler
 
+# /start command
 def start(update, context):
 
     keyboard = [
@@ -19,8 +20,12 @@ def start(update, context):
         reply_markup=reply_markup
     )
 
-updater = Updater("8703192055:AAGuF9G8DhB3qV3RbKWCBdyLqJ8VxFZTJWs")
+# BOT TOKEN (BotFather থেকে বসাবে)
+updater = Updater("8703192055:AAGuF9G8DhB3qV3RbKWCBdyLqJ8VxFZTJWs", use_context=True)
+
+# handler add
 updater.dispatcher.add_handler(CommandHandler("start", start))
 
+# start bot
 updater.start_polling()
 updater.idle()
